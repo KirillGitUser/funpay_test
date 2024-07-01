@@ -20,7 +20,7 @@ if ($mysqli->connect_errno) {
 
 $converter = @new DatabaseArgumentConverter();
 
-$db = new Database($converter);
+$db = new Database($converter, $mysqli);
 $test = new DatabaseTest($db);
 $test->testBuildQuery();
 

@@ -3,13 +3,16 @@
 namespace FpDbTest;
 
 use Exception;
+use mysqli;
 
 class Database implements DatabaseInterface
 {
     private DatabaseArgumentConverterInterface $converter;
+    private mysqli $mysqli;
 
-    public function __construct(DatabaseArgumentConverterInterface $converter)
+    public function __construct(DatabaseArgumentConverterInterface $converter, mysqli $mysqli)
     {
+        $this->$mysqli = $mysqli;
         $this->converter = $converter;
     }
 
